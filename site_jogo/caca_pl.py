@@ -34,7 +34,6 @@ class Caca_palavra:
                 linha.append(random.choice(letras)) 
                 if i == posicao:
                     linha.append(self.palavra)
-                if linha     
                 i = i +1
             tabela.append(linha)
         for linha in tabela :
