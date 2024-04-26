@@ -23,18 +23,22 @@ class Caca_palavra:
         tabela = []
         letras = 'abcdefghijklmnopqrstuvxwyz'
         tamanho_quadro = self.analise()
-        posicao = random.randint(0, len(self.palavra) - 1)
+        posicao = random.randint(1, len(self.palavra))
         i = 0
-        n = len(self.palavra) - posicao
-        for _ in range(tamanho_quadro#linha#
+        for _ in range(tamanho_quadro #linha#
                        ):
             linha = []
-            for _ in range(tamanho_quadro#coluna#
+            for _ in range(tamanho_quadro*3 #coluna#
                            ):
-                linha.append(random.choice(letras)) 
                 if i == posicao:
                     linha.append(self.palavra)
-                i = i +1
+                    i = i + 1
+                    continue
+                linha.append(random.choice(letras))  
+                i = i + 1
+                if i == posicao + 1 :
+                    linha.remove(linha[-len(self.palavra)])
+                
             tabela.append(linha)
         for linha in tabela :
             print ("".join(linha))
