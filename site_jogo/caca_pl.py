@@ -20,32 +20,29 @@ class Caca_palavra:
         return(tamanho_quadro)
 
     def contruir (self):
-        tabela = []
+        self.tabela = []
         letras = 'abcdefghijklmnopqrstuvxwyz'
         tamanho_quadro = self.analise()
-        posicao = random.randint(1, len(self.palavra))
+        n_colunas = tamanho_quadro*3
         i = 0
-        for _ in range(tamanho_quadro #linha#
-                       ):
+        for _ in range(tamanho_quadro): #linha
             linha = []
-            for _ in range(tamanho_quadro*3 #coluna#
-                           ):
-                if i == posicao:
-                    linha.append(self.palavra)
-                    i = i + 1
-                    continue
-                linha.append(random.choice(letras))  
-                i = i + 1
-                if i == posicao + 1 :
-                    linha.remove(linha[-len(self.palavra)])
-                
-            tabela.append(linha)
-        for linha in tabela :
+            for _ in range(n_colunas): #coluna 
+                linha.append(random.choice(letras)) 
+            if  i == 1:
+                linha[2] = (self.palavra)
+                linha = linha [:-2]
+            self.tabela.append(linha)
+            i = i + 1
+
+    def mostrar (self):    
+        for linha in self.tabela :
             print ("".join(linha))
             
                                                                             
 x = Caca_palavra()
 x.entrada ()
 x.contruir ()
+x.mostrar()
 
 
