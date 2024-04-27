@@ -23,17 +23,20 @@ class Caca_palavra:
         self.tabela = []
         letras = 'abcdefghijklmnopqrstuvxwyz'
         tamanho_quadro = self.analise()
-        n_colunas = tamanho_quadro*3
+        n_colunas = tamanho_quadro*2
+        posicao_linha = random.randint(0,tamanho_quadro)
+        posicao_coluna = random.randint(0,tamanho_quadro)
         i = 0
-        for _ in range(tamanho_quadro): #linha
+        for _ in range(tamanho_quadro): #numero de linhas
             linha = []
-            for _ in range(n_colunas): #coluna 
+            for _ in range(n_colunas): #numero de colunas 
                 linha.append(random.choice(letras)) 
-            if  i == 1:
-                linha[2] = (self.palavra)
-                linha = linha [:-2]
+            if  i == posicao_coluna :
+                linha[posicao_linha] = (self.palavra)
+                linha = linha [:-(len(self.palavra)-1)]
             self.tabela.append(linha)
             i = i + 1
+
 
     def mostrar (self):    
         for linha in self.tabela :
@@ -44,5 +47,6 @@ x = Caca_palavra()
 x.entrada ()
 x.contruir ()
 x.mostrar()
+
 
 
