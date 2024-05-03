@@ -12,7 +12,7 @@
         <h1>Cadastro</h1>
         <input type="nome" placeholder="nome">
         <br>
-        <input type="idade" placeholder='idade'>
+        <input id = 'idade' placeholder='idade'>
         <br>
         <input type="email" placeholder="email">
         <br>
@@ -20,5 +20,12 @@
         <br>
         <a href="x"><button>entrar</button></a>
     </div>
+    <script>
+         var a = document.getElementsByTagName ('button') [0]
+         a.addEventListener("mouseenter", entrar)
+        function entrar(){
+            a.style.backgroundColor = 'green'
+        }
+    </script>
 </body>
 </html>
