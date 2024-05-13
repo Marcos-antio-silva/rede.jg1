@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="tabela">
+        <table border="1">
+            <tr>
+                <script>
+                </script>
+            </tr>
+            <tr>
+                <td>x</td>
+                <td>X</td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+            </tr>
+        </table>
+    </div> -->
+   
+    <h1>Conteúdo do Arquivo JSON:</h1>
+    <div id="conteudo"></div>
+
+    <script>
+        // Carregando o arquivo JSON
+        fetch('dados.json')
+            .then(response => response.json())
+            .then(data => {
+                // Convertendo o objeto JSON em uma string formatada
+                const jsonStr = JSON.stringify(data, null, 2);
+                // Atualizando o conteúdo da div com o conteúdo do JSON
+                document.getElementById('conteudo').innerText = jsonStr;
+            })
+            .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+    </script>   
+    
+</body>
+</html>

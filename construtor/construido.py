@@ -1,4 +1,5 @@
 import random
+import json
 
 class Caca_palavra:
     def __init__ (self,palavra='',dificuldade=0):
@@ -32,21 +33,21 @@ class Caca_palavra:
             for _ in range(n_colunas): #numero de colunas 
                 linha.append(random.choice(letras)) 
             if  i == posicao_coluna :
-                linha[posicao_linha] = (self.palavra)
+                linha[posicao_linha] = (list(self.palavra))
                 linha = linha [:-(len(self.palavra)-1)]
             self.tabela.append(linha)
             i = i + 1
-
-
-    def mostrar (self):    
-        for linha in self.tabela :
-            print ("".join(linha))
             
+    def exportar (self):
+        tabela = "dados.json"
+        with open(tabela, "w") as arquivo:
+            json.dump(self.tabela, arquivo)
                                                                             
 x = Caca_palavra()
 x.entrada ()
 x.contruir ()
-x.mostrar()
+x.exportar()
+
 
 
 
