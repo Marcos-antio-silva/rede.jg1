@@ -29,16 +29,15 @@
     <div id="conteudo"></div>
 
     <script>
-        // Carregando o arquivo JSON
         fetch('dados.json')
             .then(response => response.json())
             .then(data => {
                 // Convertendo o objeto JSON em uma string formatada
                 const jsonStr = JSON.stringify(data, null, 2);
                 // Atualizando o conteúdo da div com o conteúdo do JSON
-                document.getElementById('conteudo').innerText = jsonStr;
             })
             .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+            document.getElementById('conteudo').innerText = jsonStr;
     </script>   
     
 </body>
